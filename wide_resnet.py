@@ -138,7 +138,10 @@ class WideResNet:
         predictions_a = Dense(units=101, kernel_initializer=self._weight_init, use_bias=self._use_bias,
                               kernel_regularizer=l2(self._weight_decay), activation="softmax",
                               name="pred_age")(flatten)
-        model = Model(inputs=inputs, outputs=[predictions_g, predictions_a])
+        predictions_r = Dense(units=5, kernel_initializer=self._weight_init, use_bias=self._use_bias,
+                              kernel_regularizer=l2(self._weight_decay), activation="softmax",
+                              name="pred_race")(flatten)
+        model = Model(inputs=inputs, outputs=[predictions_g, predictions_a, predictions_r])
 
         return model
 
