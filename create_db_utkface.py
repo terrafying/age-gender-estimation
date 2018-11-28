@@ -40,7 +40,7 @@ def main():
         img = cv2.imread(str(image_path))
         out_imgs.append(cv2.resize(img, (img_size, img_size)))
 
-    output = {"image": np.array(out_imgs), "gender": np.array(out_genders), "age": np.array(out_ages),
+    output = {"image": np.array(out_imgs), "gender": np.array(out_genders), "age": np.array(out_ages), "race": np.array(out_races),
               "db": "utk", "img_size": img_size, "min_score": -1}
     scipy.io.savemat(output_path, output)
 
