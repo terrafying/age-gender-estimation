@@ -28,6 +28,7 @@ def main():
     out_genders = []
     out_ages = []
     out_imgs = []
+    out_races = []
 
     for i, image_path in enumerate(tqdm(image_dir.glob("*.jpg"))):
         image_name = image_path.name  # [age]_[gender]_[race]_[date&time].jpg
