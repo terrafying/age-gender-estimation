@@ -31,7 +31,10 @@ def main():
 
     for i, image_path in enumerate(tqdm(image_dir.glob("*.jpg"))):
         image_name = image_path.name  # [age]_[gender]_[race]_[date&time].jpg
-        age, gender = image_name.split("_")[:2]
+        age, gender, race = image_name.split("_")[:3]
+        if '.' in race:
+            continue
+        out_races.append(int(race))
         out_genders.append(int(gender))
         out_ages.append(min(int(age), 100))
         img = cv2.imread(str(image_path))
